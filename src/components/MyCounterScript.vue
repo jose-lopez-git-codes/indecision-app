@@ -10,7 +10,7 @@
 </template>
 
 <script lang="ts">
-import { userCounter } from '@/composables/useCounter';
+import { useCounter } from '@/composables/useCounter';
 import { defineComponent } from 'vue';
 
 export default defineComponent({
@@ -18,7 +18,7 @@ export default defineComponent({
     value: { type: Number, required: true },
   },
   setup(props) {
-    const { counter, squareCounter } = userCounter(props.value);
+    const { counter, squareCounter } = useCounter(props.value);
     return {
       counter,
       squareCounter,

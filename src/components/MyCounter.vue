@@ -1,7 +1,7 @@
 <template name="component-name">
   <section>
     <h3>Counter: {{ counter }}</h3>
-    <h3>Square: {{ squareCounter }}</h3>
+    <h3 data-testid="square-label">Square: {{ squareCounter }}</h3>
     <div>
       <button class="btn-increment" @click="counter++">+1</button>
       <button class="btn-decrement" @click="counter--">-1</button>
@@ -10,14 +10,14 @@
 </template>
 
 <script lang="ts" setup>
-import { userCounter } from '@/composables/useCounter';
+import { useCounter } from '@/composables/useCounter';
 
 interface Props {
   value: number;
 }
 
 const props = defineProps<Props>();
-const { counter, squareCounter } = userCounter(props.value);
+const { counter, squareCounter } = useCounter(props.value);
 </script>
 
 <style scoped>
